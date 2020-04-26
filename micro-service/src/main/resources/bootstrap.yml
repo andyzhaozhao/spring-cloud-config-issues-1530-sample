@@ -15,8 +15,12 @@ eureka:
     leaseRenewalIntervalInSeconds: 10
     health-check-url-path: /actuator/health
 
+micro-service:
+  s: "s s s from self"
+
 ---
 spring:
+  profiles: native
   cloud:
     config:
       fail-fast: true

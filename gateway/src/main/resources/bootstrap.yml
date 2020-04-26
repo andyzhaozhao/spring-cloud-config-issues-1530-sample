@@ -30,9 +30,12 @@ management:
       exposure:
         include: "*"   #暴漏actuator 的所有接口
 
+gateway:
+  s: "gateway sssss from self"
 
 ---
 spring:
+  profiles: native
   cloud:
     config:
       fail-fast: true
