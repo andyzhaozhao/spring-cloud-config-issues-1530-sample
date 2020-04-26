@@ -57,7 +57,8 @@ The Bug:  Could not fetch the dynamic Eureka clients when using Spring Cloud Con
 Visit url "http://localhost:8090/actuator/gateway/routes" by chrome, return this:
 There are some micro-service's routes. It proves that The gateway collected the routes dynamically with "config-server".
 
-### gateway 
+### other url
+#### gateway 
 * http://localhost:8090/actuator/gateway
 * http://localhost:8090/actuator/gateway/routes
 * http://localhost:8090/actuator/gateway/routes/{id}
@@ -66,6 +67,6 @@ There are some micro-service's routes. It proves that The gateway collected the 
 * http://localhost:8090/actuator/gateway/refresh
 
 
-### config server
+#### config server
 * http://localhost:8710/micro-service/native
 * http://localhost:8710/gateway/native
