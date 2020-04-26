@@ -1,0 +1,47 @@
+server:
+  port: 8090
+
+spring:
+  profiles:
+    active: native
+  application:
+    name: gateway
+  cloud:
+    gateway:
+      discovery:
+        locator:
+          lower-case-service-id: true
+          enabled: true
+eureka:
+  client:
+    registryFetchIntervalSeconds: 5
+    serviceUrl:
+      defaultZone: http://localhost:8761/eureka/
+  instance:
+    leaseRenewalIntervalInSeconds: 10
+    health-check-url-path: /actuator/health
+
+management:
+  endpoint:
+    gateway:
+      enabled: true
+  endpoints:
+    web:
+      exposure:
+        include: "*"   #暴漏actuator 的所有接口
+
+
+---
+spring:
+  cloud:
+    config:
+      fail-fast: true
+      retry:
+        initial-interval: 2000
+        max-attempts: 15
+        max-interval: 3000
+        multiplier: 1.3
+      profile: dev
+      discovery:
+        enabled: true
+        service-id: config-server

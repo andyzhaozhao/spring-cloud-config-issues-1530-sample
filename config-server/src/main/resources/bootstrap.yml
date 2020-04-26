@@ -1,0 +1,35 @@
+server:
+  port: 8710
+
+spring:
+  application:
+    name: config-server
+  profiles:
+    active: native
+
+eureka:
+  client:
+    registryFetchIntervalSeconds: 5
+    serviceUrl:
+      defaultZone: http://localhost:8761/eureka/
+  instance:
+    leaseRenewalIntervalInSeconds: 10
+    health-check-url-path: /actuator/health
+
+management:
+  endpoint:
+    gateway:
+      enabled: true
+  endpoints:
+    web:
+      exposure:
+        include: "*"   #暴漏actuator 的所有接口
+
+#本地开发环境配置
+---
+spring:
+  cloud:
+    config:
+      server:
+        native:
+          searchLocations: "classpath:/native"
